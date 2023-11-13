@@ -10,6 +10,7 @@ import { connectDB } from "./config/db";
 // routers
 import productRouter from "./routes/product.router";
 import categoryRouter from "./routes/category.router";
+import healthRouter from "./routes/health.router";
 
 // middlewares
 import { errorHandler, notFound } from "./middleware/error.middleware";
@@ -36,6 +37,10 @@ app.use(cors());
 // routes handler
 
 // app.use("/", "Server is running!");
+app.get("/", (req, res) => {
+  res.send("🏃 Server is running! 🏃");
+});
+app.use("/api/health", healthRouter);
 app.use("/api/products", productRouter);
 app.use("/api/categories", categoryRouter);
 
