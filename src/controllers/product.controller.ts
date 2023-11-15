@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import Product from "../models/product.model";
-import sendEmail from "../nodemailer/emailer";
+import { sendEmail } from "../emailsend/emailer";
 
 export const getProducts = async (_req: Request, res: Response, next: NextFunction) => {
   try {
