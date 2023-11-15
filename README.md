@@ -26,6 +26,14 @@ This TypeScript-based server is an integral part of the shopping list applicatio
 - **`/utils`**: Utility functions and common middleware.
 - **`server.ts`**: The main entry point for the server application.
 
+## Monitoring
+Using monitoring tools such as:
+- **Cloudflare wrangler**: for monitoring onrender.com server health\
+![image](https://github.com/nivnetanel/Shopping-List-Api/assets/97378548/0fbae130-3979-4931-a694-fecb4c83e4f9)
+
+- **Nodemailer**: for monitoring user behavior when adding and removing products\
+![image](https://github.com/nivnetanel/Shopping-List-Api/assets/97378548/cc704f2f-e08c-4335-8dd7-902c9f06be6b)
+
 ## Installation and Setup
 
 Make sure Node.js is installed and then follow these instructions:
