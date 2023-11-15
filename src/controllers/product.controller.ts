@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import Product from "../models/product.model";
+import sendEmail from "../nodemailer/emailer";
 
 export const getProducts = async (_req: Request, res: Response, next: NextFunction) => {
   try {
@@ -29,6 +30,7 @@ export const getProductById = async (req: Request, res: Response, next: NextFunc
 export const deleteProduct = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const product = await Product.findById(req.params.id);
+    sendEmail(`Product Removed :${product?.name}`, `Product Removed :${product?.name}`);
 
     if (!product) {
       res.status(404);
@@ -45,7 +47,7 @@ export const deleteProduct = async (req: Request, res: Response, next: NextFunct
 export const createProduct = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { categoryId, name } = req.body;
-
+    sendEmail(`New Product Added :${name}`, `New Product Added :${name}`);
     // Check if a product with the same name already exists
     const existingProduct = await Product.findOne({ name, categoryId });
 
