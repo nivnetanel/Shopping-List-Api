@@ -1,5 +1,5 @@
-const nodemailer = require("nodemailer");
-const dotenv = require("dotenv");
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
 dotenv.config();
 
 let transporter = nodemailer.createTransport({
@@ -10,7 +10,7 @@ let transporter = nodemailer.createTransport({
   },
 });
 
-const sendEmail = (subject, text) => {
+export const sendEmail = (subject: string, text: string): void => {
   let mailOptions = {
     from: process.env.GMAIL_USER,
     to: process.env.GMAIL_USER,
@@ -26,5 +26,3 @@ const sendEmail = (subject, text) => {
     }
   });
 };
-
-module.exports = sendEmail;
